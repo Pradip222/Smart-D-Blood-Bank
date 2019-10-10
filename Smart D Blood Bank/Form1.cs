@@ -216,12 +216,13 @@ namespace Smart_D_Blood_Bank
                         SqlCommand update1 = new SqlCommand(updatecommand1, conn1);
                         update1.ExecuteNonQuery();
                         conn1.Close();
-                        conn1.Open();
-                        MessageBox.Show("ok" + maxid.ToString(), "ok", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        command = "insert into patient (Pid,Pname,Paddress,Pincode,Bldgrp) values" + "(" + maxid.ToString() + ",'" + txtPname.Text.ToString() + "','" + txtPaddress.Text.ToString() + "','" + txtPin.Text.ToString() + "','" + txtPblood.Text.ToString() + "');";
-                        SqlCommand insert = new SqlCommand(command, conn1);
-                        insert.ExecuteNonQuery();
-                        conn1.Close();
+                    conn1.Open();
+                    string commandInsert = "insert into Donar (Did,Dname,Address,Age,Weight,Hb,Email,Mobile,DDate,Bgroup,Status) values(" + maxid + ",'" + txtDname.Text.ToString() + "','" + txtDaddress.Text.ToString() + "','" + txtAge.Text.ToString() + "','" + txtDweight.Text.ToString() + "','" + txtDHB.Text.ToString() + "','" + txtDemail.Text.ToString() + "','" + txtDmobile.Text.ToString() + "','" + DateTime.Now.ToString() + "','" + txtDBgrp.Text.ToString() + "','" + txtDstatus.Text.ToString() + "');";
+                    SqlCommand put = new SqlCommand(commandInsert, conn1);
+                    put.ExecuteNonQuery();
+
+                    conn1.Close();
+                    MessageBox.Show("Record added successfully", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtAge.Clear();
                     txtDaddress.Clear();
                     txtDBgrp.Clear();
@@ -234,12 +235,8 @@ namespace Smart_D_Blood_Bank
                     
                 }
 
-                    conn1.Open();
-                    string commandInsert = "insert into Donar (Did,Dname,Address,Age,Weight,Hb,Email,Mobile,DDate,Bgroup,Status) values(" + maxid + ",'" + txtDname.Text.ToString() + "','" +txtDaddress.Text.ToString()+ "','" +txtAge.Text.ToString()+ "','" +txtDweight.Text.ToString()+ "','" +txtDHB.Text.ToString()+ "','" +txtDemail.Text.ToString()+ "','" +txtDmobile.Text.ToString()+ "','" +DateTime.Now.ToString()+ "','"+txtDBgrp.Text.ToString()+ "','"+txtDstatus.Text.ToString()+ "');";
-                SqlCommand put = new SqlCommand(commandInsert, conn1);
-                put.ExecuteNonQuery();
-                
-                conn1.Close();
+                    
+
 
             }
             
