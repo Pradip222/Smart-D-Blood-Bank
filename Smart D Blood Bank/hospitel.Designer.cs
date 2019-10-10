@@ -32,9 +32,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lbbloodbank = new System.Windows.Forms.Label();
             this.lbrequriedbloodgroup = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +51,7 @@
             this.cmbgroup.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbgroup.FormattingEnabled = true;
             this.cmbgroup.Items.AddRange(new object[] {
-            "-SELECT BLOOD GROUP-",
+            "-SELECT-",
             "A+",
             "B+",
             "AB+",
@@ -57,8 +62,9 @@
             "AB-"});
             this.cmbgroup.Location = new System.Drawing.Point(257, 181);
             this.cmbgroup.Name = "cmbgroup";
-            this.cmbgroup.Size = new System.Drawing.Size(171, 37);
+            this.cmbgroup.Size = new System.Drawing.Size(159, 37);
             this.cmbgroup.TabIndex = 9;
+            this.cmbgroup.SelectedIndexChanged += new System.EventHandler(this.Cmbgroup_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -70,7 +76,7 @@
             this.panel1.ForeColor = System.Drawing.Color.Snow;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(521, 56);
+            this.panel1.Size = new System.Drawing.Size(679, 56);
             this.panel1.TabIndex = 6;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
@@ -81,11 +87,12 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
             this.label3.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(487, 0);
+            this.label3.Location = new System.Drawing.Point(645, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 37);
             this.label3.TabIndex = 3;
             this.label3.Text = "X";
+            this.label3.Click += new System.EventHandler(this.Label3_Click);
             // 
             // label1
             // 
@@ -96,17 +103,6 @@
             this.label1.Size = new System.Drawing.Size(119, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Hospitel";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 311);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(485, 150);
-            this.dataGridView1.TabIndex = 10;
             // 
             // lbbloodbank
             // 
@@ -128,14 +124,74 @@
             this.lbrequriedbloodgroup.TabIndex = 7;
             this.lbrequriedbloodgroup.Text = "Requried Blood Group:";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnId,
+            this.Address,
+            this.ColumnName,
+            this.ColumnPin,
+            this.ColumnCount});
+            this.dataGridView1.Location = new System.Drawing.Point(0, 295);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(680, 227);
+            this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick_1);
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "Id";
+            this.ColumnId.MinimumWidth = 6;
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            this.ColumnId.Width = 125;
+            // 
+            // Address
+            // 
+            this.Address.HeaderText = "Address";
+            this.Address.MinimumWidth = 6;
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            this.Address.Width = 125;
+            // 
+            // ColumnName
+            // 
+            this.ColumnName.HeaderText = "Name";
+            this.ColumnName.MinimumWidth = 6;
+            this.ColumnName.Name = "ColumnName";
+            this.ColumnName.ReadOnly = true;
+            this.ColumnName.Width = 125;
+            // 
+            // ColumnPin
+            // 
+            this.ColumnPin.HeaderText = "Pin";
+            this.ColumnPin.MinimumWidth = 6;
+            this.ColumnPin.Name = "ColumnPin";
+            this.ColumnPin.ReadOnly = true;
+            this.ColumnPin.Width = 125;
+            // 
+            // ColumnCount
+            // 
+            this.ColumnCount.HeaderText = "Count";
+            this.ColumnCount.MinimumWidth = 6;
+            this.ColumnCount.Name = "ColumnCount";
+            this.ColumnCount.ReadOnly = true;
+            this.ColumnCount.Width = 125;
+            // 
             // hospitel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 522);
+            this.ClientSize = new System.Drawing.Size(679, 522);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cmbgroup);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lbbloodbank);
             this.Controls.Add(this.lbrequriedbloodgroup);
             this.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -146,6 +202,7 @@
             this.Name = "hospitel";
             this.ShowIcon = false;
             this.Text = "hospitel";
+            this.Load += new System.EventHandler(this.Hospitel_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -160,8 +217,13 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lbbloodbank;
         private System.Windows.Forms.Label lbrequriedbloodgroup;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCount;
     }
 }
