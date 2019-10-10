@@ -138,6 +138,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 295);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(680, 227);
@@ -146,19 +147,21 @@
             // 
             // ColumnId
             // 
+            this.ColumnId.FillWeight = 40F;
             this.ColumnId.HeaderText = "Id";
             this.ColumnId.MinimumWidth = 6;
             this.ColumnId.Name = "ColumnId";
             this.ColumnId.ReadOnly = true;
-            this.ColumnId.Width = 125;
+            this.ColumnId.Width = 50;
             // 
             // Address
             // 
+            this.Address.FillWeight = 160F;
             this.Address.HeaderText = "Address";
             this.Address.MinimumWidth = 6;
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
-            this.Address.Width = 125;
+            this.Address.Width = 170;
             // 
             // ColumnName
             // 
@@ -166,7 +169,7 @@
             this.ColumnName.MinimumWidth = 6;
             this.ColumnName.Name = "ColumnName";
             this.ColumnName.ReadOnly = true;
-            this.ColumnName.Width = 125;
+            this.ColumnName.Width = 170;
             // 
             // ColumnPin
             // 

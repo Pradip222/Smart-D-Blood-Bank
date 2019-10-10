@@ -28,6 +28,7 @@ namespace Smart_D_Blood_Bank
         {
             switch (cmbgroup.SelectedIndex){
                 case 0:
+                    dataGridView1.Rows.Clear();
                     break;
                 case 1:
                     showall("apos");
@@ -99,7 +100,7 @@ namespace Smart_D_Blood_Bank
 
         private void Label3_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
         }
     }
 }
