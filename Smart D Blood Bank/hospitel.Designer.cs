@@ -156,12 +156,11 @@
             // 
             // Address
             // 
-            this.Address.FillWeight = 160F;
             this.Address.HeaderText = "Address";
             this.Address.MinimumWidth = 6;
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
-            this.Address.Width = 170;
+            this.Address.Width = 200;
             // 
             // ColumnName
             // 
